@@ -23,6 +23,15 @@ We welcome contributions from the community. If you have suggestions or want to 
 
 Need help? Visit our Support Center or Contact us at Support@curiosity.com
 
+## Frontend Deployment :
+
+https://curiosityio.netlify.app
+
+
+## Repository Link :
+
+https://github.com/kalviumcommunity/Curiosity
+
 ---
 Happy Learning !
 The Curiosity Team
