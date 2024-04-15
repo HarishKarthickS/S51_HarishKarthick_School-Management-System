@@ -1,11 +1,14 @@
-import LandingPage from './Components/LandingPage'
+import { BrowserRouter } from 'react-router-dom/dist'
+import AllRoutes from './AllRoutes'
 import './App.css'
 
 function App() {
 
   return (
     <>
-      <LandingPage/>
+      <BrowserRouter>
+        <AllRoutes/>
+      </BrowserRouter>
     </>
   )
 }
