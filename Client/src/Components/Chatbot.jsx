@@ -6,7 +6,55 @@ const Chatbot = () => {
   const [chatHistory, setChatHistory] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
+    // Styled components for UI elements
+const ChatContainer = styled.div`
+display: flex;
+flex-direction: column;
+width: 500px;
+margin: 0 auto;
+padding: 20px;
+border-radius: 5px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+`;
 
+const ChatHistory = styled.div`
+flex: 1;
+overflow-y: scroll;
+margin-bottom: 10px;
+`;
+
+const ChatMessage = styled.div`
+padding: 10px;
+border-radius: 5px;
+margin-bottom: 5px;
+background-color: ${({ sender }) => (sender === 'user' ? '#f0f0f0' : '#e0e0ff')};
+text-align: ${({ sender }) => (sender === 'user' ? 'right' : 'left')};
+`;
+
+const ChatInput = styled.div`
+display: flex;
+`;
+
+const InputField = styled.input`
+flex: 1;
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 3px;
+`;
+
+const SendButton = styled.button`
+padding: 10px 20px;
+border: none;
+border-radius: 3px;
+cursor: pointer;
+background-color: #333;
+color: #fff;
+`;
+
+const EmojiSpan = styled.span`
+font-size: 1.2em;
+margin-right: 5px;
+`;
   // Replace with your actual Gemini API key
   const API_KEY = 'YOUR_GEMINI_API_KEY';
 
