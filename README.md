@@ -27,9 +27,6 @@ Need help? Visit our Support Center or Contact us at Support@curiosity.com
 
 https://curiosityio.netlify.app
 
-## Backend Deployment :
-
-https://curiosity-gsw4.onrender.com
 
 ## Repository Link :
 
