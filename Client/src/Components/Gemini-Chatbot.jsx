@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import ReactMarkdown from "react-markdown";
 import Prism from "prismjs";
 import "prismjs/themes/prism.css"; // Import PrismJS CSS
