@@ -2,14 +2,13 @@ const express = require('express')
 const cors = require('cors');
 const { startDatabase, isConnected } = require('./db/database');
 const { GoogleGenerativeAI } = require("@google/generative-ai");
-
+const router = require('./routes/Blog.routes')
 const app = express()
 app.use(express.json());
 app.use(cors())
-dotenv.config();
 
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GEN_AI_KEY);
-
+app.use('/api', router);
 app.get('/', (req, res) => {
   res.send({ message: 'Welcome to the amazing world of Learning' })
 })

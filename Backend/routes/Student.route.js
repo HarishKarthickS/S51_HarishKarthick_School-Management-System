@@ -1,5 +1,5 @@
 const router = express.Router();
-
+const Student = require('../models/Student.model');
 // Get all students
 router.get('/students', async (req, res) => {
   try {

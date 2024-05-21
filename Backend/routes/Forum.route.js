@@ -1,5 +1,5 @@
 const router = express.Router();
-
+const Forum = require('../models/Forum.model');
 // Get all forums
 router.get('/forums', async (req, res) => {
   try {
