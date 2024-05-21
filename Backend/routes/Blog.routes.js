@@ -1,4 +1,6 @@
+const express = require('express')
 const router = express.Router();
+const Blog = require('../models/blog.modal');
 
 // Get all blog posts
 router.get('/blogs', async (req, res) => {
@@ -66,4 +68,4 @@ router.delete('/blogs/:id', async (req, res) => {
 });
 
 // Mount the router on your Express app
-app.use('/api/blogs', router);
+module.exports = router;
