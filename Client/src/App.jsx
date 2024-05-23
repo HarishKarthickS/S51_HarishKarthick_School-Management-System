@@ -1,13 +1,15 @@
 import { BrowserRouter } from 'react-router-dom/dist'
 import AllRoutes from './AllRoutes'
-import Chatbot from './Components/Chatbot'
+import GeminiChatbot from './Components/Gemini-Chatbot'
+
 import './App.css'
 
 function App() {
 
   return (
     <>
-    <Chatbot/>
+    <GeminiChatbot/>
+
       {/* <BrowserRouter>
         <AllRoutes/>
       </BrowserRouter> */}
