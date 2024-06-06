@@ -8,7 +8,7 @@ function FeedbackForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setSubmitted(true); // Simulate form submission
+    setSubmitted(true); 
   };
 
   return (
