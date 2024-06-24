@@ -8,11 +8,9 @@ function App() {
 
   return (
     <>
-    <GeminiChatbot/>
-
-      {/* <BrowserRouter>
+      <BrowserRouter>
         <AllRoutes/>
-      </BrowserRouter> */}
+      </BrowserRouter>
     </>
   )
 }
