@@ -3,6 +3,7 @@ const cors = require('cors');
 const { startDatabase, isConnected } = require('./db/database');
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const router = require('./routes/Blog.routes')
+const { loginRouter, signupRouter } = require('./routes/AuthServer')
 const app = express()
 app.use(express.json());
 app.use(cors())
@@ -12,7 +13,8 @@ app.use('/api', router);
 app.get('/', (req, res) => {
   res.send({ message: 'Welcome to the amazing world of Learning' })
 })
-
+app.use(loginRouter)
+app.use(signupRouter)
 app.get('/home', (req, res) => {
   res.json({
     message: isConnected() ? 'Database is connected' : 'Disconnected from database'

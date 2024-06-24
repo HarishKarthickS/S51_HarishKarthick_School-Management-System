@@ -29,7 +29,7 @@ signupRouter.post('/signup', async (req, res) => {
 
     await newUser.save(); // Use mongoose save method
 
-    const accessToken = jwt.sign({ _id: newUser._id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '30m' }); // Use user ID for token payload and set expiration time
+    const accessToken = jwt.sign({ _id: newUser._id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '93m' }); // Use user ID for token payload and set expiration time
 
     res.status(201).json({ message: "Signup successful", accessToken }); // Send only necessary data
   } catch (err) {
@@ -50,7 +50,7 @@ loginRouter.post('/login', async (req, res) => {
       return res.status(401).json({ message: 'Invalid credentials' });
     }
 
-    const accessToken = jwt.sign({ _id: user._id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '30m' }); // Use user ID for token payload and set expiration time
+    const accessToken = jwt.sign({ _id: user._id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '93m' }); // Use user ID for token payload and set expiration time
 
     res.json({ accessToken }); // Send only necessary data
   } catch (err) {
