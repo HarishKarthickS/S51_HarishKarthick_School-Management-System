@@ -60,7 +60,7 @@ function LogInPage() {
               </span>
             </div>
             <div className="mt-14 text-sm font-medium max-md:mt-10 max-md:max-w-full">
-              Email
+              Username
             </div>
             <div className="flex gap-2.5 self-start mt-5 text-base">
               <img
