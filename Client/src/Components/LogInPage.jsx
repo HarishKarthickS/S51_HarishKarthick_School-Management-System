@@ -21,7 +21,7 @@ function LogInPage() {
             axios.post('http://localhost:3000/login',{
                 name:userName,
                 password:password
-            }).then((response)=>{
+            }).then((response)=>{console.log(response);
             setCookie('token', response.data.accessToken,365);
             setCookie('username', userName,365);
         navigate('/')}).catch((error)=>{console.error(error)});

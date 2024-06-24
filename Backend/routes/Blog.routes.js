@@ -2,8 +2,18 @@ const express = require('express')
 const router = express.Router();
 const Blog = require('../models/blog.modal');
 
+const authenticateToken = (req, res, next) => {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1]
+  if(token==null) return res.sendStatus(401)
+  jwt.verify(token,process.env.ACCESS_TOKEN_SECRET,(err,user)=>{
+    if(err) return res.sendStatus(403)
+    next()
+  })
+}
+
 // Get all blog posts
-router.get('/blogs', async (req, res) => {
+router.get('/blogs',authenticateToken, async (req, res) => {
   try {
     const blogs = await Blog.find();
     res.json(blogs);
@@ -14,7 +24,7 @@ router.get('/blogs', async (req, res) => {
 });
 
 // Get a specific blog post by ID
-router.get('/blogs/:id', async (req, res) => {
+router.get('/blogs/:id',authenticateToken, async (req, res) => {
   try {
     const blog = await Blog.findById(req.params.id);
     if (!blog) {
@@ -28,7 +38,7 @@ router.get('/blogs/:id', async (req, res) => {
 });
 
 // Create a new blog post
-router.post('/blogs', async (req, res) => {
+router.post('/blogs',authenticateToken, async (req, res) => {
   try {
     const newBlog = new Blog(req.body);
     await newBlog.save();
@@ -40,7 +50,7 @@ router.post('/blogs', async (req, res) => {
 });
 
 // Update a blog post (modify this based on your requirements)
-router.put('/blogs/:id', async (req, res) => {
+router.put('/blogs/:id',authenticateToken, async (req, res) => {
   try {
     const updatedBlog = await Blog.findByIdAndUpdate(req.params.id, req.body, { new: true });
     if (!updatedBlog) {
@@ -54,7 +64,7 @@ router.put('/blogs/:id', async (req, res) => {
 });
 
 // Delete a blog post
-router.delete('/blogs/:id', async (req, res) => {
+router.delete('/blogs/:id',authenticateToken, async (req, res) => {
   try {
     const deletedBlog = await Blog.findByIdAndDelete(req.params.id);
     if (!deletedBlog) {
